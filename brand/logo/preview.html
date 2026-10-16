@@ -3,29 +3,148 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>شعار مؤسسة النصر</title>
+<title>شعار النصر للمحاماة</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
 <style>
-  :root { --bg: #ffffff; --fg: #2b2410; }
-  body { margin: 0; min-height: 100vh; display: grid; place-items: center; gap: 16px;
-         background: var(--bg); color: var(--fg); font-family: system-ui, sans-serif; transition: background .3s; }
-  body.dark { --bg: #0f0d08; --fg: #f3e6c0; }
-  .logo { width: min(80vw, 520px); height: auto; }
-  .bar { display: flex; gap: 8px; }
-  button { font: inherit; padding: 8px 16px; border-radius: 8px; border: 1px solid #d4a00a;
-           background: transparent; color: inherit; cursor: pointer; }
+  body { margin: 0; }
+  /* Layout: a quiet archive wall — six equal stages, gold only on the marks themselves */
+  :root {
+    --bg: #F3F2EE; --surface: #FFFFFF; --ink: #1E1D1A; --muted: #6B6658; --line: #DEDACF;
+    --gold: #A97A08; --stage: #FFFFFF; --stage-alt: #15140F;
+    --display: "Aref Ruqaa", "Amiri", serif;
+    --body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+    --mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #12110E; --surface: #1B1A16; --ink: #EEE9DC; --muted: #A39C8A; --line: #2E2C25;
+    --gold: #E2B947; --stage: #0D0C0A; --stage-alt: #FFFFFF; color-scheme: dark; } }
+  :root[data-theme="dark"] {
+    --bg: #12110E; --surface: #1B1A16; --ink: #EEE9DC; --muted: #A39C8A; --line: #2E2C25;
+    --gold: #E2B947; --stage: #0D0C0A; --stage-alt: #FFFFFF; color-scheme: dark; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.6; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-block: 40px 64px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: grid; gap: 40px; }
+  header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 32px; }
+  header .lead { display: grid; gap: 6px; min-width: 0; }
+  .eyebrow { color: var(--gold); font-weight: 600; font-size: 13px; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(34px, 5vw, 52px); line-height: 1.15; margin: 0; text-wrap: balance; }
+  header p { margin: 0; color: var(--muted); max-width: 60ch; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; }
+  button { font: inherit; font-size: 14px; font-weight: 500; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 999px; padding: 7px 16px; cursor: pointer; }
+  button:hover { border-color: var(--gold); color: var(--gold); }
+  button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  button.primary { background: var(--gold); border-color: var(--gold); color: var(--surface); }
+  button.primary:hover { color: var(--surface); opacity: .9; }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+  .stage { background: var(--stage); aspect-ratio: 1; max-width: 100%; display: grid; place-items: center; border-bottom: 1px solid var(--line); transition: background .3s; }
+  body.alt .stage { background: var(--stage-alt); }
+  .stage img { width: 82%; height: auto; }
+  .meta { padding: 16px 18px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .foot { margin-top: auto; padding-top: 4px; }
+  h2 { margin: 0; font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  .num { font-family: var(--display); color: var(--gold); font-size: 22px; line-height: 1; }
+  .dur { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .meta p { margin: 0; color: var(--muted); font-size: 14px; }
+  code { font-family: var(--mono); font-size: 12px; color: var(--muted); direction: ltr; unicode-bidi: isolate; overflow-wrap: anywhere; }
+  section > h3 { font-size: 16px; font-weight: 600; margin: 0 0 14px; }
+  .swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0; }
+  @media (max-width: 560px) { .swatches { grid-template-columns: minmax(0, 1fr); } }
+  .swatch { margin: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); }
+  .swatch img { display: block; width: 100%; aspect-ratio: 1; max-width: 100%; padding: 12%; box-sizing: border-box; background: #FFFFFF; }
+  .swatch.dark img { background: #15140F; }
+  figcaption { padding: 10px 14px; font-size: 14px; color: var(--muted); }
 </style>
 </head>
 <body>
-  <img id="logo" class="logo" src="logo-animated.svg" alt="مؤسسة النصر للمحاماة">
-  <div class="bar">
-    <button onclick="replay()">إعادة التشغيل</button>
-    <button onclick="document.body.classList.toggle('dark')">خلفية فاتحة / داكنة</button>
+<div class="wrap" dir="rtl" lang="ar">
+  <header>
+    <div class="lead">
+      <span class="eyebrow">الهوية البصرية · مؤسسة النصر للمحاماة</span>
+      <h1>اختار حركة الشعار</h1>
+      <p>ست طرق مختلفة لظهور الشعار. اضغط «إعادة التشغيل» تحت أي واحدة عشان تشوفها من الأول، وجرّب الخلفية التانية عشان تشوف شكلها على الموقع والفيديو.</p>
+    </div>
+    <div class="controls">
+      <button type="button" id="replay-all" class="primary">تشغيل الكل من الأول</button>
+      <button type="button" id="toggle-bg">قلب لون الخلفية</button>
+    </div>
+  </header>
+  <div class="grid">
+      <article class="card">
+        <div class="stage"><img id="img-anim-1-draw" src="animations/anim-1-draw.svg" alt="أنيميشن رسم بالقلم" data-src="animations/anim-1-draw.svg"></div>
+        <div class="meta">
+          <div class="row"><h2><span class="num">1</span>رسم بالقلم</h2><span class="dur">5.5 ث</span></div>
+          <p>حدود الشعار تترسم بخط ذهبي رفيع، وبعدين تتملي بالذهب ولمعة تعدّي عليه.</p>
+          <div class="row foot"><code>anim-1-draw.svg</code><button type="button" class="replay" data-for="img-anim-1-draw">إعادة التشغيل</button></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="stage"><img id="img-anim-2-balance" src="animations/anim-2-balance.svg" alt="أنيميشن توازن الميزان" data-src="animations/anim-2-balance.svg"></div>
+        <div class="meta">
+          <div class="row"><h2><span class="num">2</span>توازن الميزان</h2><span class="dur">4 ث</span></div>
+          <p>العمود يطلع من تحت، والذراع تنزل وتتأرجح لحد ما الكفّتين يتوازنوا، وبعدها يظهر الاسم.</p>
+          <div class="row foot"><code>anim-2-balance.svg</code><button type="button" class="replay" data-for="img-anim-2-balance">إعادة التشغيل</button></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="stage"><img id="img-anim-3-write" src="animations/anim-3-write.svg" alt="أنيميشن كتابة من اليمين" data-src="animations/anim-3-write.svg"></div>
+        <div class="meta">
+          <div class="row"><h2><span class="num">3</span>كتابة من اليمين</h2><span class="dur">5.5 ث</span></div>
+          <p>الميزان يظهر، والكلمات تتكتب من اليمين للشمال زي الخط العربي، والزخرفة تتمد.</p>
+          <div class="row foot"><code>anim-3-write.svg</code><button type="button" class="replay" data-for="img-anim-3-write">إعادة التشغيل</button></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="stage"><img id="img-anim-4-shine" src="animations/anim-4-shine.svg" alt="أنيميشن لمعة ذهبية" data-src="animations/anim-4-shine.svg"></div>
+        <div class="meta">
+          <div class="row"><h2><span class="num">4</span>لمعة ذهبية</h2><span class="dur">4.5 ث</span></div>
+          <p>الشعار يوضح من ضباب ناعم، وبعدها لمعة ضوء ونجوم صغيرة بتلمع على الميزان.</p>
+          <div class="row foot"><code>anim-4-shine.svg</code><button type="button" class="replay" data-for="img-anim-4-shine">إعادة التشغيل</button></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="stage"><img id="img-anim-5-assemble" src="animations/anim-5-assemble.svg" alt="أنيميشن تجميع القطع" data-src="animations/anim-5-assemble.svg"></div>
+        <div class="meta">
+          <div class="row"><h2><span class="num">5</span>تجميع القطع</h2><span class="dur">5 ث</span></div>
+          <p>كل جزء بييجي من اتجاه: الكفّتين من الجناب، والعمود من تحت، والكلام من الناحيتين.</p>
+          <div class="row foot"><code>anim-5-assemble.svg</code><button type="button" class="replay" data-for="img-anim-5-assemble">إعادة التشغيل</button></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="stage"><img id="img-anim-6-seal" src="animations/anim-6-seal.svg" alt="أنيميشن الختم" data-src="animations/anim-6-seal.svg"></div>
+        <div class="meta">
+          <div class="row"><h2><span class="num">6</span>الختم</h2><span class="dur">4.5 ث</span></div>
+          <p>الشعار ينزل زي الختم مع موجة ذهبية، وحلقتين حواليه يترسموا زي الخاتم الرسمي.</p>
+          <div class="row foot"><code>anim-6-seal.svg</code><button type="button" class="replay" data-for="img-anim-6-seal">إعادة التشغيل</button></div>
+        </div>
+      </article>
   </div>
+  <section>
+    <h3>الشعار الثابت</h3>
+    <div class="swatches">
+      <figure class="swatch light"><img src="logo.svg" alt="الشعار ذهبي"><figcaption>ذهبي · <code>logo.svg</code></figcaption></figure>
+      <figure class="swatch dark"><img src="logo-white.svg" alt="الشعار أبيض"><figcaption>أبيض · <code>logo-white.svg</code></figcaption></figure>
+      <figure class="swatch light"><img src="logo-black.svg" alt="الشعار أسود"><figcaption>أسود · <code>logo-black.svg</code></figcaption></figure>
+    </div>
+  </section>
+</div>
 <script>
-  function replay() {
-    const img = document.getElementById('logo');
-    img.src = 'logo-animated.svg?t=' + Date.now();
+  function replay(img) {
+    const s = img.dataset.src;
+    img.src = s + '#r' + Date.now();
   }
+  document.querySelectorAll('.replay').forEach(b =>
+    b.addEventListener('click', () => replay(document.getElementById(b.dataset.for))));
+  document.getElementById('replay-all').addEventListener('click', () =>
+    document.querySelectorAll('.stage img').forEach(replay));
+  document.getElementById('toggle-bg').addEventListener('click', () => document.body.classList.toggle('alt'));
 </script>
 </body>
 </html>
